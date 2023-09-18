@@ -1,0 +1,54 @@
+.a-button{
+    background-color: blanchedalmond; /* 배경색상 */
+    color: brown; /* 글자색상 */
+    border: 1px solid burlywood; /* 테두리 */
+    border-radius: 10px; /* 테두리 굴곡정도 */
+    cursor: pointer; /* 커서모양 */
+    /* margin-right: 50px; 외부여백-오른쪽
+    margin-left: 50px; 외부여백-왼쪽*/
+    margin: 20px 20px 20px 20px; /* top right bottom left */
+    /* padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px; */
+    padding: 20px 20px 20px 20px; /* top right bottom left */
+}
+.a-button:hover{
+    opacity: 0.7;
+    background-color: black;
+    scale: 0.98;
+}
+.a-button:active{
+    opacity: 0.5;
+}
+
+.b-button{
+    background-color: darksalmon;
+    color: aliceblue;
+    border: 5px solid darkgray;
+    border-radius: 15px;
+    margin: 10px 50px 10px 50px;
+    padding: 10px 10px 10px 10px;
+    transition: background-color 3s, color 1s;
+}
+.b-button:hover{
+    opacity: 0.7;
+    background-color: darkgray;
+    scale: 0.98;
+}
+.b-button:active{
+    opacity: 0.5;
+}
+
+.c-button{
+    display: block;
+    margin-top: 13px;
+    padding: 17px 0;
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 4px;
+    background-color: #03c75a;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(3,199,90,.12);
+    box-shadow: 0 2px 4px 0 rgba(3,199,90,.12);
+    text-decoration: none;
+    color: #fff;
+}

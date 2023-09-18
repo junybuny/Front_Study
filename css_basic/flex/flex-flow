@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        border: 3px solid black;
+        /* flex-direction: row;
+        flex-flow: wrap; */
+        flex-flow: row wrap;
+    }
+    .flex-item{
+        color: black;
+        font-size: 40px;
+        padding: 24px;
+        text-align: center;
+        width: 100px;
+    }
+    .item1{
+        background-color: rgb(255, 246, 233);
+    }
+    .item2{
+        background-color: rgb(223, 247, 255);
+    }
+    .item3{
+        background-color: rgb(228, 228, 228);
+    }
+    .item4{
+        background-color: rgb(201, 216, 236);
+    }
+    .item5{
+        background-color: rgb(255, 230, 204);
+    }
+    .item6{
+        background-color: rgb(255, 227, 232);
+    }
+    
+</style>
+
+<body>
+    <div class="container">
+        <div class="flex-item item1">1번</div>
+        <div class="flex-item item2">2번</div>
+        <div class="flex-item item3">3번</div>
+        <div class="flex-item item4">4번</div>
+        <div class="flex-item item5">5번</div>
+        <div class="flex-item item6">6번</div>
+    </div>
+</body>
+</html>
