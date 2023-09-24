@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>문제3</h3>
+    <form onsubmit="join(event)">
+        <fieldset>
+            <legend>회원가입</legend>
+            아이디 : <input type="text" id="id"><br><br>
+            비밀번호 : <input type="password" id="pwd"><br><br>
+            비밀번호 확인 : <input type="password" id="pwdconfirm"><br><br>
+            이름 : <input type="text" id="name"><br><br>
+            <button onclick="submit">회원가입</button>
+        </fieldset>
+    </form>
+
+    <script>
+        function join(event) {
+            event.preventDefault();
+            const id = document.getElementById("id").value;
+            const pwd = document.getElementById("pwd").value;
+            const pwdconfirm = document.getElementById("pwdconfirm").value;
+            const name = document.getElementById("name").value;
+
+            if (!id) {
+                alert("아이디를 입력해주세요.");
+                document.getElementById("id").focus();
+            } else if (!pwd) {
+                alert("비밀번호를 입력해주세요.");
+                document.getElementById("pwd").focus();
+            } else if (!pwdconfirm) {
+                alert("비밀번호 확인을 입력해주세요.");
+                document.getElementById("pwdconfirm").focus();
+            } else if (!name) {
+                alert("이름를 입력해주세요.");
+                document.getElementById("name").focus();
+            } else if (pwd !== pwdconfirm) {
+                alert("비밀번호가 일치하지 않습니다.");
+                document.getElementById("pwd").value = "";
+                document.getElementById("pwdconfirm").value = "";
+                document.getElementById("pwd").focus();
+            } else {
+                // 여기에 서버로 데이터를 전송하고 회원가입 처리를 할 수 있습니다.
+                alert(`${name}님, 회원가입이 완료되었습니다!`);
+                document.getElementById("id").value = "";
+                document.getElementById("pwd").value = "";
+                document.getElementById("pwdconfirm").value = "";
+                document.getElementById("name").value = "";
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>
