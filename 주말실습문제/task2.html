@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .zero{
-            background-color: red;
-        }
-    </style>
-
 </head>
 <body>
     <h3>문제2</h3>
@@ -22,7 +16,7 @@
         <option value="%">%</option>
       </select>
     <input type="number" id="num2" style="width: 70px;">
-    <button onclick="calculation(event)">=</button>
+    <button onclick="calculation()">=</button>
     <input type="text" id="result" style="width: 70px;" readonly>
     
     <script>
@@ -45,23 +39,19 @@
                     result = num1 * num2;
                     break;
                 case "/":
-                    if (num2 === 0){
+                    if (num2 === 0) {
                         resultEl.value = "연산불가";
-                        resultEl.style.background = 'red';
                         return;
                     } else {
                         result = num1 / num2;
-                        resultEl.style.background = '';
                         break;
                     }
                 case "%":
                     if (num2 === 0) {
                         resultEl.value = "연산불가";
-                        resultEl.style.background = 'red';
                         return;
                     } else {
                         result = num1 % num2;
-                        resultEl.style.background = '';
                         break;
                     }
             }
