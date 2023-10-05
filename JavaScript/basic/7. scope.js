@@ -8,14 +8,14 @@ function test1(){
     console.log(number1);
 }
 
-// test1();
+test1();
 
 function test2(){
     var number1 = 40;
     console.log(number1);
 }
 
-// test2();
+test2();
 
 function test4(){
     var number2 = 11;
@@ -41,17 +41,17 @@ test3();
  * 실행한 위치가 상위 스코프를 정한다.
  */
 
-// var i = 1000;
-// for (var i = 0; i < 10; i++){
-//     console.log(i);
-// }
-// console.log("i = " + i); // 10
-
-i = 1000;
-for (let i = 0; i < 10; i++){
+var i = 1000;
+for (var i = 0; i < 10; i++){
     console.log(i);
 }
 console.log("i = " + i); // 10
+
+// i = 1000;
+// for (let i = 0; i < 10; i++){
+//     console.log(i);
+// }
+// console.log("i = " + i); // 1000
 
 /**
  * var 키워드는 함수레벨 스코프만 만들어낸다.

@@ -141,7 +141,7 @@
                         순수자바스크립트방식                |       jQuery방식
         =========================================================================================================
                document.getElementById('아이디명');        |        $('#아이디')
-            document.getElementsByClassName('클레스명')    |        $('.클래스명')
+            document.getElementsByClassName('클래스명')    |        $('.클래스명')
             document.getElementsByTagName('태그명')        |        $('태그')
                 document.querySelector('선택자');          |        $('선택자')                  + $(변수)
 
@@ -149,10 +149,10 @@
         * 선택된 요소에 속성값 변경하고자 할 때
                         순수자바스크립트방식                |       jQuery방식
         -----------------------------------------------------------------------------------------------------------
-                |선택된 요소객체에 직접 접근해서 변경       | 선택된 요소에 메소드 이용
+                |선택된 요소객체에 직접 접근해서 변경       | 선택된 요소에 메서드 이용
         =============================================================================================================
         스타일  |  .style.스타일속성 = '변경할 값'          |  .css('스타일속성', '변경할 값')
-        내용    |       .innerHTML = '변경할 값'            |         .html('변경할 값');   .test('변경할 값');
+        내용    |       .innerHTML = '변경할 값'            |         .html('변경할 값');   .text('변경할 값');
         이벤트  |    .on이벤트명 = function(){}             |       .이벤트명(function(){});
 
 
@@ -252,16 +252,39 @@
                 console.log(unit)
             }
 
-            // 2) each메서드
-            $.each(arr, function(index, value){
-                console.log('index : ' + index + ' value : ' + value);
-            })
-
-            // $(arr).each(function(index, value){
-            //     console.log('index : ' + index + ' value : ' + value);
+             //2) each메소드
+            // $.each(arr, function(index, value){
+            //     console.log('index : ' + index + ' value: '  + value);
             // })
 
-            
+            // $(arr).each(function(index, value){
+            //     console.log('index : ' + index + ' value: '  + value);
+            // })
+
+            // arr.array.forEach(function(){
+
+            // });
+
+            let tmp = {
+                name : 'jiwon',
+                age : 30
+            }
+
+            function each(callback){
+                for (let index in tmp) {
+                    let value = arr[index];
+                    callback(index, )
+                }
+            }
+
+            $(tmp).each(function(index, value){
+                //실행하고싶은 로직
+                console.log('index : ' + index + ' value: '  + value.name);
+            })
+
+            tmp.forEach(function(index, value){
+                console.log('index : ' + index + ' value: '  + value.name);
+            })
 
         })
     </script>
