@@ -39,7 +39,7 @@ img {
     height: 40px;
     border: none;
     border-radius: 50px 0px 0px 50px;
-    background: rgb(255, 248, 231);
+    background: #f4f4f4;
     
 }
 .search-bar > button{
@@ -50,14 +50,14 @@ img {
     cursor: pointer;
 }
 
-#todo-list-view{
+#todo-list-area{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 12px 24px;
 }
 
-#todo-list-view > div{
+#todo-list-area > div{
     background: #f4f4f4;
     width: 100%;
     height: 34px;
@@ -67,11 +67,11 @@ img {
     position: relative;
 }
 
-#todo-list-view > div.done{
+#todo-list-area > div.done{
     text-decoration: line-through;
 }
 
-#todo-list-view > div .remove-btn{
+#todo-list-area > div .remove-btn{
     position: absolute;
     right: 0px;
     top: 0px;

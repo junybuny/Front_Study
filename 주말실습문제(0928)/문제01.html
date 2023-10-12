@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calculator {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        #display {
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        #buttons button {
+            width: 48px;
+            height: 48px;
+            margin: 2px;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="calculator">
+        <input id="display" type="text" readonly>
+            <div id="buttons">
+                <button onclick="clearDisplay()">C</button>
+                <button onclick="backspace()">bs</button>
+                <button onclick="appendToDisplay('%')">%</button>
+                <button onclick="appendToDisplay('/')">/</button><br>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('*')">X</button><br>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('-')">-</button><br>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('+')">+</button><br>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="calculateResult()">=</button>
+            </div>
+    </div>
+
+    
+
+    <script>
+        let display = document.getElementById("display");
+        let currentExpression = "";
+
+        function clearDisplay() {
+            currentExpression = ""; // 입력 창 초기화
+            display.value = ""; // 화면에도 표시 초기화
+        }
+
+        function appendToDisplay(value) {
+            if (value === "=") {
+                try {
+                    const result = eval(currentExpression);
+                    display.value = result;
+                    currentExpression = String(result);
+                } catch (error) {
+                    display.value = "계산할 수 없습니다. 식을 완성시켜 주세요.";
+                }
+            } else if (value === "C") {
+                display.value = " ";
+                currentExpression = " ";
+            } else if (value === "BS") {
+                currentExpression = currentExpression.slice(0, -1);
+                display.value = currentExpression;
+            } else {
+                if (value.match(/[*/%]$/) && currentExpression === "") {
+                    alert("처음은 연산자가 나올 수 없습니다.");
+                } else if (value.match(/[+*/%-]{2,}/)) {
+                    alert("한 번에 연산자가 두 개 붙을 수 없습니다.");
+                } else {
+                    currentExpression += value;
+                    display.value = currentExpression;
+                }
+            }
+        }
+
+
+    </script>
+    
+</body>
+</html>

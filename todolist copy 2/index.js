@@ -1,25 +1,24 @@
 const todoList = [];
 
-function saveTodo(){
-    localStorage.setItem('todoList', JSON.stringify(todoList));
-}
-
-
-
 function addTodo(ev){
+    const todoInput = document.getElementById('search-input');
 
-    if (document.getElementById('search-input').value.trim() === '')
+    // 비어있는경우
+    if (todoInput.value.trim() === ""){
         return;
+    }
 
-    //추가할 일정요소 만들기
-    function getTodoNode(){
-        //요소만들기
-        //내가 입력한 값 가지고오기
-        const todoTitle = document.getElementById('search-input').value;
+    const inputTodo = {
+        title : todoInput.value
+    };
 
-        //todo요소만들고 붙여주기
-        const todoNode = document.createElement('div'); // <div>title</div>
-        todoNode.innerText = todoTitle;
+    todoList.push(inputTodo);
+
+    // localStorage.setItem("todoList", JSON.stringify(todoList));
+
+    // 요소 생성
+    const todoNode = document.createElement('div');
+        todoNode.innerText = inputTodo.title;
         todoNode.onclick = function(){
             todoNode.isDone = !todoNode.isDone;
             if (todoNode.isDone) {
@@ -28,29 +27,24 @@ function addTodo(ev){
                 this.className = '';
             }
         }
-        
-        //요소삭제버튼 만들고 붙여주기
-        const removeBtn = document.createElement('button'); // <button><i class='fa-solid fa-xmark'></i></button>
-        removeBtn.className = 'remove-btn';
-        removeBtn.innerHTML = "<i class='fa-solid fa-xmark'></i>";
-        todoNode.appendChild(removeBtn); // <div>밥먹기<button><i class='fa-solid fa-xmark'></i></button></div>
-        removeBtn.onclick = function(){
-            this.parentNode.remove();
-        }
 
-        document.getElementById('search-input').value = '';
-        localStorage.setItem('todoList', JSON.stringify(todoList));
-        return todoNode;
+    const removeInput = document.createElement('button');
+    removeInput.className = 'remove-btn';
+    removeInput.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    todoNode.appendChild(removeInput);
+    removeInput.onclick = function(){
+        this.parentNode.remove();
     }
 
-    //엔터키를 입력했다면 해당코드 실행
-    if (!ev.keyCode || ev.keyCode === 13) {
-        //일정을 보여주는 영역 가져오기
-        const toDoListView = document.querySelector('#todo-list-view');
-        // 요소 생성하는 함수호출
-        const todoNode = getTodoNode();
-        toDoListView.appendChild(todoNode);
+    // 엔터일때
+    if (!ev.keyCode || ev.keyCode === 13){
+        const todoListArea = document.querySelector('#todo-list-area');
+        todoListArea.appendChild(todoNode);
+
+        // 입력창 비우기
+        todoInput.value = "";
     }
 
 
 }
+
